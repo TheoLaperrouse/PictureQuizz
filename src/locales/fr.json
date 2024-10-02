@@ -1,1 +1,8 @@
-{}
+{
+    "homeWelcome": "Bienvenue sur PictureQuizz",
+    "homeDescription": "Devine le nom d'une célébrité le plus rapidement possible !...",
+    "createRoom": "Créer une room",
+    "joinRoom": "Rejoindre une room",
+    "playersList": "Liste des joueurs",
+    "submitAnswer": "Soumettre la réponse"
+}

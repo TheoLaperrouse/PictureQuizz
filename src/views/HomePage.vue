@@ -5,7 +5,6 @@
         <img src="@/assets/logo.png" alt="Smiley incognito" class="w-64 h-64 mb-6" />
         <h1 class="text-4xl font-bold mb-6">{{ $t('homeWelcome') }}</h1>
         <p class="text-lg mb-6 text-center max-w-xl">{{ $t('homeDescription') }}</p>
-
         <div class="space-x-4">
             <button @click="createRoom">
                 {{ $t('createRoom') }}
@@ -14,27 +13,22 @@
                 {{ $t('joinRoom') }}
             </button>
         </div>
+        <button
+            type="submit"
+            class="absolute top-4 right-4 bg-blue-700 p-4 rounded-lg shadow-lg"
+            @click="openSuggestionForm"
+        >
+            {{ $t('submitSuggestion') }}
+        </button>
     </div>
 </template>
 
 <script setup>
-import socket from '@/services/socket.service';
-import { useRouter } from 'vue-router';
+import { useRoom } from '@/composables/useRoom';
+import { useSuggestion } from '@/composables/useSuggestion';
 
-const router = useRouter();
-const createRoom = async () => {
-    const roomId = Math.random().toString(36).substring(2, 7);
-    socket.emit('createRoom', roomId);
-    router.push({ name: 'Room', params: { id: roomId } });
-};
-
-const joinRoom = () => {
-    const roomId = prompt("Entrez l'ID de la room à rejoindre :");
-    if (roomId) {
-        socket.emit('joinRoom', roomId);
-        router.push({ name: 'Room', params: { id: roomId } });
-    }
-};
+const { joinRoom, createRoom } = useRoom();
+const { openSuggestionForm } = useSuggestion();
 </script>
 <style scoped>
 button {

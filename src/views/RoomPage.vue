@@ -1,13 +1,20 @@
 <template>
-    <div class="room-page min-h-screen bg-gradient-to-r from-blue-900 to-blue-800 text-white flex">
-        <div class="w-1/4 bg-blue-700 p-4">
+    <div class="room-page min-h-screen bg-blue-900 flex">
+        <div class="w-1/4 bg-blue-800 p-4 rounded-md">
             <PlayersList :players="players" />
         </div>
-        <div class="flex-1 flex flex-col justify-center items-center p-4">
-            <img v-if="itemImage" :src="itemImage" alt="Item to Guess" class="max-w-xs max-h-96 rounded-lg shadow-lg" />
-        </div>
-        <div class="absolute bottom-6 right-6">
-            <AnswerInput @submitAnswer="submitAnswer" />
+        <div class="flex-1 flex flex-col justify-between p-4">
+            <div class="flex-grow flex items-center justify-center">
+                <img
+                    v-if="itemImage"
+                    :src="itemImage"
+                    alt="Item to Guess"
+                    class="max-w-xs max-h-96 rounded-lg shadow-lg"
+                />
+            </div>
+            <div class="w-full">
+                <AnswerInput @submitAnswer="submitAnswer" />
+            </div>
         </div>
     </div>
 </template>
@@ -17,29 +24,38 @@ import AnswerInput from '@/components/AnswerInput.vue';
 import PlayersList from '@/components/PlayersList.vue';
 import socket from '@/services/socket.service';
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-const players = ref([
-    { name: 'Player 1', score: 50 },
-    { name: 'Player 2', score: 30 },
-    { name: 'Player 3', score: 20 },
-    { name: 'Player 4', score: 10 },
-]);
+const route = useRoute();
+const roomId = route.params.id;
 
+const players = ref([]);
 const itemImage = ref('https://via.placeholder.com/150');
-
-const roomId = 'room1';
 
 const submitAnswer = (answer) => {
     socket.emit('submitAnswer', { answer, roomId });
 };
 
 onMounted(() => {
-    socket.emit('joinRoom', roomId);
+    socket.on('playerJoined', (data) => {
+        players.value = Object.values(data.players);
+    });
 
-    socket.on('someEvent', () => {});
+    socket.on('answer', () => {});
+
+    socket.on('newPicture', (imageUrl) => {
+        itemImage.value = imageUrl;
+    });
+
+    socket.on('leaderboardUpdate', (leaderboard) => {
+        players.value = leaderboard;
+    });
 });
 
 onUnmounted(() => {
-    socket.off('someEvent');
+    socket.off('playerJoined');
+    socket.off('answer');
+    socket.off('newImage');
+    socket.off('leaderboardUpdate');
 });
 </script>

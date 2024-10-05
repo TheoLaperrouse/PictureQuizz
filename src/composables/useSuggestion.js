@@ -8,6 +8,7 @@ export const useSuggestion = () => {
         const { value: suggestion } = await Swal.fire({
             title: t('suggestPicture'),
             html: `
+                ${t('getImageFrom')} <a href="https://commons.wikimedia.org" target="_blank" style="color: #007bff; text-decoration: underline;">WikiMedia</a>
                 <input id="pictureName" class="swal2-input" placeholder="${t('pictureNamePlaceholder')}">
                 <input id="pictureUrl" class="swal2-input" placeholder="${t('pictureUrlPlaceholder')}">
             `,

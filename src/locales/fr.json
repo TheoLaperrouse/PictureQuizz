@@ -17,11 +17,15 @@
     "shareLinkMessage": "Partagez ce code pour inviter d'autres joueurs :",
     "okButton": "OK",
     "roomId": "Code de la salle",
-    "imageNamePlaceholder": "Nom de l'image",
-    "imageUrlPlaceholder": "URL de l'image",
-    "submitSuggestion": "Soumettre",
+    "pictureNamePlaceholder": "Nom",
+    "pictureUrlPlaceholder": "URL de l'image",
+    "submitSuggestion": "Suggérer une image",
     "bothFieldsRequiredMessage": "Vous devez remplir les deux champs !",
     "suggestionSuccessTitle": "Suggestion Envoyée",
     "suggestionSuccessMessage": "Vous avez suggéré {name} avec succès !",
-    "suggestPicture": "Suggérer une image"
+    "suggestPicture": "Suggérer une image",
+    "getImageFrom": "Cherchez votre image ici : ",
+    "developedBy": "Développé par",
+    "backend": "Backend",
+    "frontend": "Frontend"
 }

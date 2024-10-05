@@ -1,13 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-input,
-select {
-    @apply block w-20 w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500;
-}
-label {
-    @apply mb-2 block text-sm font-medium text-gray-900;
-}
-.card {
-    @apply mt-6 max-w-lg transform rounded-lg border-2 p-6 shadow-lg transition-transform hover:scale-105;
+
+button {
+    @apply bg-navy-blue rounded-lg px-4 py-2 font-semibold text-white shadow-lg transition duration-300 hover:bg-blue-900
 }

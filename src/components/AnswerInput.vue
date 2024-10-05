@@ -7,10 +7,7 @@
             class="p-2 rounded-lg border border-gray-300 text-black flex-grow mr-2"
             @keydown.enter="submit"
         />
-        <button
-            @click="submit"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg min-w-[200px] transition duration-300"
-        >
+        <button @click="submit">
             {{ $t('submitAnswer') }}
         </button>
     </div>

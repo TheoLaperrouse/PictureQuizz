@@ -1,9 +1,9 @@
 <template>
-    <div class="room-page min-h-screen bg-blue-900 flex">
-        <div class="w-1/4 bg-blue-800 p-4 rounded-md">
+    <div class="room-page min-h-screen bg-teal flex">
+        <div class="w-1/4 bg-teal p-2 rounded-md">
             <PlayersList :players="players" />
         </div>
-        <div class="flex-1 flex flex-col justify-between p-4">
+        <div class="flex-1 flex flex-col justify-between py-2 pr-2">
             <div class="flex-grow flex items-center justify-center">
                 <img
                     v-if="itemImage"

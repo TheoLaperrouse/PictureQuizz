@@ -1,4 +1,6 @@
-const suggestionURL = 'http://localhost:3000/suggestions';
+const { VITE_API_URL: apiUrl } = import.meta.env;
+const url = apiUrl || 'http://localhost:3000';
+const suggestionURL = url + '/suggestions';
 
 export const submitSuggestion = async (suggestion) => {
     const response = await fetch(suggestionURL, {

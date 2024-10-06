@@ -30,7 +30,6 @@ export const useRoom = () => {
 
         router.push({ name: 'Room', params: { id: roomId } });
         socket.emit('createRoom', roomId);
-        socket.emit('joinRoom', { roomId, username: storedUsername.value });
 
         Swal.fire({
             title: t('roomCreatedTitle'),
@@ -70,7 +69,7 @@ export const useRoom = () => {
             confirmButtonText: t('joinRoom'),
             cancelButtonText: t('cancelButton'),
         });
-        socket.emit('joinRoom', { roomId, username });
+        storedUsername.value = username;
         router.push({ name: 'Room', params: { id: roomId } });
     };
     return { joinRoom, createRoom };

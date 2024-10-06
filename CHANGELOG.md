@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/TheoLaperrouse/PictureQuizz/compare/v1.1.0...v1.2.0) (2024-10-06)
+
+
+### Bug Fixes
+
+* color improvment / add footer on home page ([505dc91](https://github.com/TheoLaperrouse/PictureQuizz/commit/505dc910bbf5050bb38fc5c06d9973964ca6aea3))
+* join room accessing url ([24ec821](https://github.com/TheoLaperrouse/PictureQuizz/commit/24ec821c9ec24b5df93378dbe5829f43c0289c1d))
+
+
+### Features
+
+* add medal on players list ([9fef2e7](https://github.com/TheoLaperrouse/PictureQuizz/commit/9fef2e7950fab83ec891de801a1b6bc74fb3594c))
+
 # [1.1.0](https://github.com/TheoLaperrouse/PictureQuizz/compare/v1.0.1...v1.1.0) (2024-10-05)
 
 
